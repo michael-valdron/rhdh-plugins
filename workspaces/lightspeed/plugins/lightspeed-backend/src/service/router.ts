@@ -23,9 +23,9 @@ import express, { Router } from 'express';
 import { createProxyMiddleware } from 'http-proxy-middleware';
 
 import {
-  lightspeedChatCreatePermission,
   lightspeedChatDeletePermission,
   lightspeedChatReadPermission,
+  lightspeedChatUsePermission,
   lightspeedMcpManagePermission,
   lightspeedMcpReadPermission,
   lightspeedPermissions,
@@ -542,7 +542,7 @@ export async function createRouter(
   router.post(
     '/v1/feedback',
     generalRateLimiter,
-    requirePermission(lightspeedChatCreatePermission),
+    requirePermission(lightspeedChatUsePermission),
     async (request, response) => {
       try {
         const { userEntityRef } = getIdentity(request);
@@ -585,7 +585,7 @@ export async function createRouter(
   router.post(
     '/v1/query/interrupt',
     generalRateLimiter,
-    requirePermission(lightspeedChatCreatePermission),
+    requirePermission(lightspeedChatUsePermission),
     async (request, response) => {
       try {
         const { userEntityRef } = getIdentity(request);
@@ -624,7 +624,7 @@ export async function createRouter(
     express.json({ limit: EXPRESS_JSON_BODY_LIMIT }),
     expensiveRateLimiter,
     validateCompletionsRequest,
-    requirePermission(lightspeedChatCreatePermission),
+    requirePermission(lightspeedChatUsePermission),
     async (request, response) => {
       const { provider }: Pick<QueryRequestBody, 'provider'> = request.body;
       try {
@@ -724,7 +724,7 @@ export async function createRouter(
   router.put(
     '/v2/conversations/:conversation_id',
     generalRateLimiter,
-    requirePermission(lightspeedChatCreatePermission),
+    requirePermission(lightspeedChatUsePermission),
     async (request, response) => {
       try {
         const { userEntityRef } = getIdentity(request);

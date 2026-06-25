@@ -29,8 +29,8 @@ export const lightspeedChatReadPermission = createPermission({
 /** This permission is used to access the lightspeed create conversations endpoint
  * @public
  */
-export const lightspeedChatCreatePermission = createPermission({
-  name: 'intelligent-assistant.chat.create',
+export const lightspeedChatUsePermission = createPermission({
+  name: 'intelligent-assistant.chat.use',
   attributes: {
     action: 'create',
   },
@@ -93,7 +93,7 @@ export const lightspeedNotebooksUsePermission = createPermission({
  */
 export const lightspeedPermissions = [
   lightspeedChatReadPermission,
-  lightspeedChatCreatePermission,
+  lightspeedChatUsePermission,
   lightspeedChatDeletePermission,
   lightspeedChatUpdatePermission,
   lightspeedMcpReadPermission,

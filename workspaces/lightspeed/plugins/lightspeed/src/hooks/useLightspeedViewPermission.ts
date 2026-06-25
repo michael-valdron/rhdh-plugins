@@ -17,8 +17,8 @@
 import { usePermission } from '@backstage/plugin-permission-react';
 
 import {
-  lightspeedChatCreatePermission,
   lightspeedChatReadPermission,
+  lightspeedChatUsePermission,
 } from '@red-hat-developer-hub/backstage-plugin-lightspeed-common';
 
 export const useLightspeedViewPermission = () => {
@@ -27,7 +27,7 @@ export const useLightspeedViewPermission = () => {
   });
 
   const canCreateChats = usePermission({
-    permission: lightspeedChatCreatePermission,
+    permission: lightspeedChatUsePermission,
   });
 
   return {
