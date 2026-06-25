@@ -42,7 +42,7 @@ All nested keys (`servicePort`, `systemPrompt`, `prompts`, `mcpServers`, `notebo
 | Before                     | After                                 |
 | -------------------------- | ------------------------------------- |
 | `lightspeed.chat.read`     | `intelligent-assistant.chat.read`     |
-| `lightspeed.chat.create`   | `intelligent-assistant.chat.create`   |
+| `lightspeed.chat.create`   | `intelligent-assistant.chat.use`      |
 | `lightspeed.chat.delete`   | `intelligent-assistant.chat.delete`   |
 | `lightspeed.chat.update`   | `intelligent-assistant.chat.update`   |
 | `lightspeed.notebooks.use` | `intelligent-assistant.notebooks.use` |
@@ -130,7 +130,7 @@ The Lightspeed Backend plugin has support for the permission framework.
 
 ```CSV
 p, role:default/team_a, intelligent-assistant.chat.read, read, allow
-p, role:default/team_a, intelligent-assistant.chat.create, create, allow
+p, role:default/team_a, intelligent-assistant.chat.use, create, allow
 p, role:default/team_a, intelligent-assistant.chat.delete, delete, allow
 p, role:default/team_a, intelligent-assistant.chat.update, update, allow
 
