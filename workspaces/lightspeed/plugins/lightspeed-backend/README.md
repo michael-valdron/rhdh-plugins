@@ -39,15 +39,15 @@ All nested keys (`servicePort`, `systemPrompt`, `prompts`, `mcpServers`, `notebo
 
 **RBAC policies** — update permission names in your `rbac-policy.csv`:
 
-| Before                     | After                                 |
-| -------------------------- | ------------------------------------- |
-| `lightspeed.chat.read`     | `intelligent-assistant.chat.read`     |
-| `lightspeed.chat.create`   | `intelligent-assistant.chat.create`   |
-| `lightspeed.chat.delete`   | `intelligent-assistant.chat.delete`   |
-| `lightspeed.chat.update`   | `intelligent-assistant.chat.update`   |
-| `lightspeed.notebooks.use` | `intelligent-assistant.notebooks.use` |
-| `lightspeed.mcp.read`      | `intelligent-assistant.mcp.read`      |
-| `lightspeed.mcp.manage`    | `intelligent-assistant.mcp.manage`    |
+| Before                     | After                                        |
+| -------------------------- | -------------------------------------------- |
+| `lightspeed.chat.read`     | `intelligent-assistant.chat.read`            |
+| `lightspeed.chat.create`   | `intelligent-assistant.chat.create`          |
+| `lightspeed.chat.delete`   | `intelligent-assistant.conversations.manage` |
+| `lightspeed.chat.update`   | `intelligent-assistant.chat.update`          |
+| `lightspeed.notebooks.use` | `intelligent-assistant.notebooks.use`        |
+| `lightspeed.mcp.read`      | `intelligent-assistant.mcp.read`             |
+| `lightspeed.mcp.manage`    | `intelligent-assistant.mcp.manage`           |
 
 > **Warning**: The old `lightspeed:` config key and `lightspeed.*` permission names are no longer recognized. Existing deployments that do not update will silently lose functionality.
 
@@ -131,7 +131,7 @@ The Lightspeed Backend plugin has support for the permission framework.
 ```CSV
 p, role:default/team_a, intelligent-assistant.chat.read, read, allow
 p, role:default/team_a, intelligent-assistant.chat.create, create, allow
-p, role:default/team_a, intelligent-assistant.chat.delete, delete, allow
+p, role:default/team_a, intelligent-assistant.conversations.manage, delete, allow
 p, role:default/team_a, intelligent-assistant.chat.update, update, allow
 
 # Required for Notebooks feature (if enabled)
